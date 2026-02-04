@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+</head>
+<body>
+    <h1>H1 Heading</h1>
+
+    <!-- With the help of Style attribute you can customize
+           the size of the heading, As done below-->
+
+    <h1 style="font-size: 50px">H1 with new size.</h1>
+
+    <!-- Here font-size is the property by which  we can 
+           modify the heading. Here we kept it 50px i.e. 50 pixels -->
+
+</body>
+
+</html>
