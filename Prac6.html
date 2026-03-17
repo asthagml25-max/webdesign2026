@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MidNight University - Scholarship Form</title>
+</head>
+<body>
+
+    <h2>MidNight University</h2>
+    <h3>Scholarship Registration Form</h3>
+
+    <form>
+
+        <!-- Personal Details -->
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            Full Name:
+            <input type="text" name="fullname" required><br><br>
+
+            Email:
+            <input type="email" name="email" required><br><br>
+
+            Phone Number:
+            <input type="tel" name="phone"><br><br>
+
+            Gender:
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+            <input type="radio" name="gender" value="other"> Other
+        </fieldset>
+
+        <br>
+
+        <!-- Academic Details -->
+        <fieldset>
+            <legend>Academic Information</legend>
+
+            Course:
+            <select name="course">
+                <option value="">--Select Course--</option>
+                <option value="btech">B.Tech</option>
+                <option value="bsc">B.Sc</option>
+                <option value="bcom">B.Com</option>
+                <option value="ba">B.A</option>
+            </select>
+            <br><br>
+
+            Percentage:
+            <input type="number" name="percentage" min="0" max="100">
+        </fieldset>
+
+        <br>
+
+        <!-- Scholarship Details -->
+        <fieldset>
+            <legend>Scholarship Preferences</legend>
+
+            Scholarship Type:<br>
+            <input type="checkbox" name="scholarship" value="merit"> Merit-Based<br>
+            <input type="checkbox" name="scholarship" value="sports"> Sports<br>
+            <input type="checkbox" name="scholarship" value="need"> Need-Based<br>
+
+            <br>
+
+            Are you currently receiving any scholarship?
+            <input type="radio" name="existing_scholarship" value="yes"> Yes
+            <input type="radio" name="existing_scholarship" value="no"> No
+        </fieldset>
+
+        <br>
+
+        <!-- Submit -->
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+
+    </form>
+
+</body>
+</html>
