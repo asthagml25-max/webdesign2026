@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, Times New Roman;
+            margin: 0;
+            background-color: lightBlue;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: skyblue;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: navy;
+        }
+
+        /* Profile Container */
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background-color: beige;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+        }
+
+        /* Profile Header */
+        .profile-header {
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Profile Image */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-top: 10px;
+        }
+
+        /* Profile Details */
+        .details {
+            margin-top: 20px;
+        }
+
+        .details h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        .details p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Logout</a>
+    </div>
+
+    <!-- Profile Container -->
+    <div class="container">
+
+        <!-- Header -->
+        <div class="profile-header">
+            <h1>Alice McFee</h1>
+            <<img src="https://picsum.photos/150" alt="Profile Image"
+     style="width:150px; height:150px; border-radius:50%;">
+            <p>Web Developer</p>
+        </div>
+
+        <!-- Details -->
+        <div class="details">
+            <h3>About Me</h3>
+            <p>I am a passionate web developer who enjoys creating interactive and user-friendly websites.</p>
+
+            <h3>Contact Information</h3>
+            <p>Email: alice@example.com</p>
+            <p>Phone: +1234567890</p>
+
+            <h3>Skills</h3>
+            <p>HTML, CSS, JavaScript, React</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2026 Profile Page</p>
+    </div>
+
+</body>
+</html>
