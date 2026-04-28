@@ -1,138 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Travel Blog</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Explore Arizona | Advanced Travel Blog</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
-body{background:linear-gradient(135deg,#f5f7fa,#c3cfe2);color:#333;}
-header{background:#ffffffdd;backdrop-filter:blur(10px);padding:15px 50px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
-nav a{margin-left:25px;text-decoration:none;color:#333;font-weight:500;transition:0.3s;}
-nav a:hover{color:#ff7e5f;}
-
-.hero{height:75vh;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)),url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;}
-.hero h2{font-size:55px;font-weight:700;margin-bottom:15px;}
-.hero p{font-size:18px;max-width:600px;opacity:0.9;}
-
-.container{display:grid;grid-template-columns:3fr 1fr;gap:35px;padding:50px;}
-.article{background:#fff;padding:40px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.15);}
-.article h2{font-size:30px;margin-bottom:20px;}
-.article p{line-height:1.9;margin-bottom:18px;font-size:15px;color:#444;}
-.article h3{margin:20px 0 10px;font-size:22px;color:#222;}
-
-.sidebar{display:flex;flex-direction:column;gap:25px;}
-.card{background:#fff;padding:20px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.12);transition:0.3s;}
-.card:hover{transform:translateY(-5px);}
-.card img{width:100%;border-radius:12px;margin-bottom:10px;}
-.related-post{display:flex;gap:12px;margin-bottom:12px;align-items:center;}
-.related-post img{width:65px;height:65px;border-radius:10px;object-fit:cover;}
-.related-post p{font-size:14px;font-weight:500;}
-
-.comments{margin:40px;background:#fff;padding:35px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.15);}
-.comments h3{margin-bottom:15px;font-size:22px;}
-.comments input,.comments textarea{width:100%;padding:12px;margin-bottom:12px;border-radius:10px;border:1px solid #ccc;font-size:14px;}
-.comments button{padding:12px 25px;border:none;background:linear-gradient(45deg,#ff7e5f,#feb47b);color:#fff;border-radius:10px;cursor:pointer;font-weight:600;transition:0.3s;}
-.comments button:hover{transform:scale(1.05);}
-
-footer{text-align:center;padding:25px;margin-top:20px;background:#ffffffdd;}
-
-@media(max-width:900px){.container{grid-template-columns:1fr;padding:20px;} .hero h2{font-size:35px;}}
+:root{
+  --primary:#ff6b35;
+  --secondary:#8d3f2d;
+  --dark:#1f2937;
+  --light:#fff8f2;
+  --muted:#667085;
+  --glass:rgba(255,255,255,.78);
+  --shadow:0 18px 45px rgba(31,41,55,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+body{background:linear-gradient(135deg,#fff7ed,#fef3c7,#e0f2fe);color:var(--dark);}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+header{position:sticky;top:0;z-index:999;background:var(--glass);backdrop-filter:blur(16px);box-shadow:0 8px 30px rgba(0,0,0,.08);}
+.navbar{max-width:1200px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
+.logo{font-size:25px;font-weight:800;color:var(--secondary);letter-spacing:.3px;}
+.logo span{color:var(--primary);}
+nav{display:flex;gap:22px;align-items:center;}
+nav a{font-size:14px;font-weight:600;color:#374151;position:relative;}
+nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--primary);transition:.3s;}
+nav a:hover::after{width:100%;}
+.menu-btn{display:none;border:0;background:var(--primary);color:white;padding:9px 13px;border-radius:10px;font-weight:700;}
+.hero{min-height:86vh;background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;display:flex;align-items:center;}
+.hero-content{max-width:1200px;margin:auto;padding:70px 22px;color:white;}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:8px 14px;border-radius:999px;margin-bottom:18px;font-weight:600;}
+.hero h1{font-size:clamp(42px,7vw,84px);line-height:1.03;font-weight:800;max-width:850px;}
+.hero p{font-size:18px;max-width:680px;margin:20px 0 28px;line-height:1.8;opacity:.95;}
+.btn-group{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{padding:13px 22px;border-radius:14px;font-weight:700;transition:.3s;display:inline-flex;align-items:center;gap:9px;}
+.btn-primary{background:linear-gradient(45deg,#ff6b35,#ffb703);color:white;box-shadow:0 12px 25px rgba(255,107,53,.35);}
+.btn-light{background:white;color:var(--secondary);}
+.btn:hover{transform:translateY(-3px);}
+.stats{max-width:1100px;margin:-55px auto 55px;padding:0 22px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;z-index:5;}
+.stat{background:white;border-radius:22px;padding:25px;text-align:center;box-shadow:var(--shadow);}
+.stat h3{font-size:30px;color:var(--primary);}
+.stat p{color:var(--muted);font-size:14px;font-weight:600;}
+section{max-width:1200px;margin:auto;padding:45px 22px;}
+.section-title{text-align:center;margin-bottom:34px;}
+.section-title h2{font-size:clamp(28px,4vw,44px);color:#1f2937;}
+.section-title p{color:var(--muted);max-width:720px;margin:10px auto 0;line-height:1.8;}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;}
+.destination-card{background:white;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);transition:.35s;position:relative;}
+.destination-card:hover{transform:translateY(-8px);}
+.destination-card img{height:240px;width:100%;object-fit:cover;}
+.card-body{padding:22px;}
+.card-body h3{font-size:22px;margin-bottom:8px;color:#222;}
+.card-body p{color:var(--muted);line-height:1.75;font-size:14px;margin-bottom:14px;}
+.card-link{color:var(--primary);font-weight:800;font-size:14px;}
+.tag{position:absolute;top:16px;left:16px;background:rgba(255,255,255,.92);padding:7px 12px;border-radius:999px;font-size:12px;font-weight:800;color:var(--secondary);}
+.article-layout{display:grid;grid-template-columns:2fr 1fr;gap:30px;align-items:start;}
+.article{background:white;border-radius:26px;padding:34px;box-shadow:var(--shadow);}
+.article h2{font-size:32px;margin-bottom:15px;}
+.article h3{margin:25px 0 10px;font-size:23px;color:var(--secondary);}
+.article p{line-height:1.9;color:#4b5563;margin-bottom:15px;}
+.info-box{background:#fff7ed;border-left:5px solid var(--primary);padding:18px;border-radius:16px;margin:20px 0;}
+.sidebar{display:flex;flex-direction:column;gap:22px;}
+.side-card{background:white;border-radius:24px;padding:22px;box-shadow:var(--shadow);}
+.side-card h3{margin-bottom:14px;color:var(--secondary);}
+.link-list a{display:block;padding:12px 0;border-bottom:1px solid #eee;color:#374151;font-weight:600;}
+.link-list a:hover{color:var(--primary);}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:220px;gap:16px;}
+.gallery img{width:100%;height:100%;object-fit:cover;border-radius:22px;box-shadow:0 12px 30px rgba(0,0,0,.12);transition:.3s;cursor:pointer;}
+.gallery img:hover{transform:scale(1.03);}
+.gallery img:first-child{grid-row:span 2;}
+.tips{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.tip{background:white;border-radius:20px;padding:22px;box-shadow:var(--shadow);}
+.tip h3{color:var(--primary);margin-bottom:8px;}
+.comments{max-width:900px;margin:40px auto;background:white;padding:32px;border-radius:25px;box-shadow:var(--shadow);}
+.comments h3{margin-bottom:15px;font-size:24px;color:var(--secondary);}
+.comments input,.comments textarea{width:100%;padding:13px 15px;margin:9px 0;border:1px solid #ddd;border-radius:13px;font-size:14px;outline:none;}
+.comments input:focus,.comments textarea:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(255,107,53,.1);}
+.comments button{border:0;background:linear-gradient(45deg,#ff6b35,#ffb703);color:white;padding:13px 24px;border-radius:13px;font-weight:800;cursor:pointer;margin-top:8px;}
+.comment-item{background:#fff7ed;margin-top:14px;padding:13px;border-radius:13px;border-left:4px solid var(--primary);}
+footer{background:#1f2937;color:white;text-align:center;padding:35px 20px;margin-top:35px;}
+footer p{opacity:.85;}
+.back-top{position:fixed;right:22px;bottom:22px;background:var(--primary);color:white;border:0;border-radius:50%;width:46px;height:46px;font-size:20px;box-shadow:0 12px 25px rgba(0,0,0,.25);cursor:pointer;display:none;}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;z-index:2000;padding:20px;}
+.lightbox img{max-width:92%;max-height:85vh;border-radius:20px;}
+.lightbox span{position:absolute;top:25px;right:35px;color:white;font-size:38px;cursor:pointer;}
+@media(max-width:950px){
+  .grid,.article-layout,.tips{grid-template-columns:1fr 1fr;}
+  .stats{grid-template-columns:1fr 1fr;margin-top:-35px;}
+  .gallery{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:700px){
+  nav{display:none;position:absolute;left:0;right:0;top:64px;background:white;flex-direction:column;padding:20px;box-shadow:0 14px 30px rgba(0,0,0,.1);}
+  nav.active{display:flex;}
+  .menu-btn{display:block;}
+  .grid,.article-layout,.tips,.stats{grid-template-columns:1fr;}
+  .gallery{grid-template-columns:1fr;grid-auto-rows:230px;}
+  .gallery img:first-child{grid-row:span 1;}
+}
 </style>
 </head>
 <body>
-
 <header>
-<h1>Travel Blog</h1>
-<nav>
-<a href="#">Home</a>
-<a href="#">Destinations</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
-</nav>
+  <div class="navbar">
+    <a class="logo" href="#home">Arizona<span>Trails</span></a>
+    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+    <nav id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#places">Places</a>
+      <a href="#guide">Guide</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#links">Tourism Links</a>
+      <a href="#comments">Comments</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero">
-<h2>Discover Arizona's Hidden Gems</h2>
-<p>Experience unforgettable landscapes, scenic drives, and breathtaking adventures across one of the most beautiful states in the USA.</p>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="badge">USA Desert Adventure Guide</span>
+    <h1>Explore Arizona’s Canyons, Red Rocks & Desert Roads</h1>
+    <p>Plan a beautiful Arizona trip with scenic viewpoints, famous national parks, desert drives, cultural stops, and travel resources in one modern blog page.</p>
+    <div class="btn-group">
+      <a class="btn btn-primary" href="#places">Explore Destinations →</a>
+      <a class="btn btn-light" href="https://www.visitarizona.com/" target="_blank">Official Arizona Tourism</a>
+    </div>
+  </div>
 </section>
 
-<div class="container">
-<div class="article">
-<h2>Day Trips Around Arizona</h2>
-
-<p>Arizona is one of the most visually stunning travel destinations in the world, offering a blend of dramatic desert landscapes, towering rock formations, and endless open skies. Whether you are a nature lover, adventure seeker, or someone simply looking to escape into scenic beauty, Arizona has something extraordinary to offer.</p>
-
-<p>Starting your journey early in the morning, the cool desert air and golden sunrise create a magical atmosphere. Driving through highways surrounded by red rock canyons and vast plains gives you a sense of freedom and excitement. The famous routes leading to places like Sedona and the Grand Canyon provide breathtaking views at every turn.</p>
-
-<h3>Exploring Natural Wonders</h3>
-<p>The Grand Canyon is undoubtedly the highlight of any Arizona trip. Standing at the edge and looking down into the vast canyon is an unforgettable experience. The layered rock formations tell a story of millions of years of geological history. Hiking trails, viewpoints, and photography spots make it a perfect destination for both adventure and relaxation.</p>
-
-<p>Another must-visit destination is Sedona, known for its vibrant red rock formations and spiritual energy. The town offers hiking trails, jeep tours, and peaceful spots for meditation. The sunsets here are especially mesmerizing, painting the sky in shades of orange, pink, and purple.</p>
-
-<h3>Local Culture & Food</h3>
-<p>Arizona is not just about landscapes; it also offers a rich cultural experience. You can explore Native American heritage, visit local art galleries, and enjoy authentic southwestern cuisine. From tacos to grilled specialties, the food adds another layer of joy to your trip.</p>
-
-<p>Small roadside cafes and local markets give you a chance to interact with locals and understand their way of life. These experiences make your journey more personal and memorable.</p>
-
-<h3>Final Thoughts</h3>
-<p>A day trip around Arizona is more than just travel — it's an experience filled with adventure, beauty, and discovery. Whether you're capturing photos, exploring nature, or simply enjoying the peaceful surroundings, Arizona leaves a lasting impression on every traveler.</p>
-
-<p>If you're planning your next getaway, Arizona should definitely be on your list. Pack your bags, hit the road, and let the journey surprise you at every step.</p>
+<div class="stats">
+  <div class="stat"><h3>6+</h3><p>Featured Spots</p></div>
+  <div class="stat"><h3>12</h3><p>Gallery Images</p></div>
+  <div class="stat"><h3>4</h3><p>Official Links</p></div>
+  <div class="stat"><h3>100%</h3><p>Responsive Design</p></div>
 </div>
 
-<div class="sidebar">
-<div class="card">
-<h3>About Author</h3>
-<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e">
-<p>Robert Thomas is a passionate traveler and storyteller who has explored over 30 countries. He loves sharing real experiences, travel tips, and hidden gems with readers.</p>
+<section id="places">
+  <div class="section-title">
+    <h2>Best Places to Visit in Arizona</h2>
+    <p>From the Grand Canyon to Sedona and Antelope Canyon, Arizona is full of unforgettable landscapes and photo-worthy travel moments.</p>
+  </div>
+  <div class="grid">
+    <div class="destination-card">
+      <span class="tag">Natural Wonder</span>
+      <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=900&q=80" alt="Grand Canyon Arizona">
+      <div class="card-body"><h3>Grand Canyon</h3><p>One of the world’s most iconic landscapes, perfect for viewpoints, hikes, photography, and sunset memories.</p><a class="card-link" href="https://www.nps.gov/grca/planyourvisit/index.htm" target="_blank">Plan with NPS →</a></div>
+    </div>
+    <div class="destination-card">
+      <span class="tag">Red Rocks</span>
+      <img src="https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?auto=format&fit=crop&w=900&q=80" alt="Sedona Arizona red rocks">
+      <div class="card-body"><h3>Sedona</h3><p>Famous for red-rock scenery, jeep tours, peaceful trails, art galleries, and glowing desert sunsets.</p><a class="card-link" href="https://visitsedona.com/" target="_blank">Visit Sedona →</a></div>
+    </div>
+    <div class="destination-card">
+      <span class="tag">Slot Canyon</span>
+      <img src="https://images.unsplash.com/photo-1561883088-039e53143d73?auto=format&fit=crop&w=900&q=80" alt="Antelope Canyon Arizona">
+      <div class="card-body"><h3>Antelope Canyon</h3><p>A magical sandstone slot canyon near Page, known for wave-like walls and dramatic beams of light.</p><a class="card-link" href="https://www.visitarizona.com/places/parks-monuments/antelope-canyon" target="_blank">Learn More →</a></div>
+    </div>
+    <div class="destination-card">
+      <span class="tag">Desert Drive</span>
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Arizona desert road">
+      <div class="card-body"><h3>Desert Road Trips</h3><p>Drive through golden desert highways, cactus-filled landscapes, and wide-open Arizona skies.</p><a class="card-link" href="https://www.visitarizona.com/plan/road-trips" target="_blank">Road Trip Ideas →</a></div>
+    </div>
+    <div class="destination-card">
+      <span class="tag">Monument</span>
+      <img src="https://images.unsplash.com/photo-1535979863199-3c77338429a0?auto=format&fit=crop&w=900&q=80" alt="Monument Valley Arizona">
+      <div class="card-body"><h3>Monument Valley</h3><p>Huge sandstone buttes and desert views make this area one of the most cinematic places in the Southwest.</p><a class="card-link" href="https://navajonationparks.org/navajo-tribal-parks/monument-valley/" target="_blank">Navajo Parks →</a></div>
+    </div>
+    <div class="destination-card">
+      <span class="tag">City Escape</span>
+      <img src="https://images.unsplash.com/photo-1612036782180-6f0822045d54?auto=format&fit=crop&w=900&q=80" alt="Phoenix Arizona skyline desert">
+      <div class="card-body"><h3>Phoenix</h3><p>Arizona’s capital offers desert gardens, museums, food spots, hiking, shopping, and warm city vibes.</p><a class="card-link" href="https://www.visitphoenix.com/" target="_blank">Visit Phoenix →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="guide">
+  <div class="article-layout">
+    <article class="article">
+      <h2>Arizona Travel Guide</h2>
+      <p>Arizona is a dream destination for travelers who love dramatic nature, desert colors, peaceful drives, and unique cultural experiences. The state is especially famous for the Grand Canyon, Sedona’s red rocks, Antelope Canyon’s sandstone walls, and long highways surrounded by cactus and mountains.</p>
+      <div class="info-box"><strong>Best idea:</strong> Start early in the morning, carry water, wear comfortable shoes, and check official park/tour websites before visiting.</div>
+      <h3>1. Start with the Grand Canyon</h3>
+      <p>The Grand Canyon is perfect for first-time travelers because it has viewpoints, trails, ranger information, and amazing sunrise and sunset scenes. Even a short visit can feel unforgettable.</p>
+      <h3>2. Spend time in Sedona</h3>
+      <p>Sedona is known for red-rock formations, scenic drives, hiking, jeep tours, and peaceful cafés. It is also great for photography because the rocks glow beautifully during golden hour.</p>
+      <h3>3. Add Antelope Canyon carefully</h3>
+      <p>Antelope Canyon usually requires guided tours and advance planning. It is famous for narrow sandstone passages and light beams, so it is best to check availability before finalizing your trip.</p>
+      <h3>4. Enjoy local culture and food</h3>
+      <p>Arizona also has Native American heritage, local art, museums, southwestern food, and desert towns that make the trip more meaningful than just sightseeing.</p>
+    </article>
+    <aside class="sidebar" id="links">
+      <div class="side-card">
+        <h3>Official Tourism Links</h3>
+        <div class="link-list">
+          <a href="https://www.visitarizona.com/" target="_blank">Visit Arizona Official Website</a>
+          <a href="https://www.nps.gov/grca/planyourvisit/index.htm" target="_blank">Grand Canyon National Park</a>
+          <a href="https://visitsedona.com/" target="_blank">Sedona Tourism Bureau</a>
+          <a href="https://www.visitarizona.com/places/parks-monuments/antelope-canyon" target="_blank">Antelope Canyon Travel Info</a>
+          <a href="https://www.visitarizona.com/plan/travel-guide" target="_blank">Arizona Official Travel Guide</a>
+        </div>
+      </div>
+      <div class="side-card">
+        <h3>Quick Tips</h3>
+        <p>Carry extra water, sunscreen, sunglasses, power bank, comfortable shoes, and offline maps. Desert weather can change quickly, so check conditions before leaving.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="section-title">
+    <h2>Arizona Photo Gallery</h2>
+    <p>Click any image to preview it in a larger view.</p>
+  </div>
+  <div class="gallery">
+    <img onclick="openLightbox(this.src)" src="https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?auto=format&fit=crop&w=1200&q=80" alt="Arizona Canyon">
+    <img onclick="openLightbox(this.src)" src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=900&q=80" alt="Grand Canyon">
+    <img onclick="openLightbox(this.src)" src="https://images.unsplash.com/photo-1561883088-039e53143d73?auto=format&fit=crop&w=900&q=80" alt="Antelope Canyon">
+    <img onclick="openLightbox(this.src)" src="https://images.unsplash.com/photo-1535979863199-3c77338429a0?auto=format&fit=crop&w=900&q=80" alt="Monument Valley">
+    <img onclick="openLightbox(this.src)" src="https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?auto=format&fit=crop&w=900&q=80" alt="Sedona">
+    <img onclick="openLightbox(this.src)" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Arizona road">
+    <img onclick="openLightbox(this.src)" src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=900&q=80" alt="Nature landscape">
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <h2>Travel Planning Tips</h2>
+  </div>
+  <div class="tips">
+    <div class="tip"><h3>Water</h3><p>Always carry enough water because Arizona can be hot and dry, especially in desert areas.</p></div>
+    <div class="tip"><h3>Timing</h3><p>Sunrise and sunset are best for photos, cooler walks, and dramatic desert colors.</p></div>
+    <div class="tip"><h3>Bookings</h3><p>For places like Antelope Canyon, book guided tours early because slots can fill quickly.</p></div>
+    <div class="tip"><h3>Safety</h3><p>Check weather, road updates, and park rules before hiking or driving to remote areas.</p></div>
+  </div>
+</section>
+
+<div class="comments" id="comments">
+  <h3>Leave a Comment</h3>
+  <input type="text" id="name" placeholder="Your Name">
+  <input type="email" id="email" placeholder="Your Email">
+  <textarea rows="5" id="comment" placeholder="Your Comment"></textarea>
+  <button onclick="addComment()">Post Comment</button>
+  <div id="commentList"></div>
 </div>
 
-<div class="card">
-<h3>Related Posts</h3>
-<div class="related-post">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-<p>Top 10 Beaches You Must Visit</p>
-</div>
-<div class="related-post">
-<img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b">
-<p>Ultimate Mountain Adventure Guide</p>
-</div>
-<div class="related-post">
-<img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d">
-<p>Best Cities for Travel Lovers</p>
-</div>
-</div>
-</div>
-</div>
-
-<div class="comments">
-<h3>Leave a Comment</h3>
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Your Email">
-<textarea rows="5" placeholder="Your Comment"></textarea>
-<button onclick="addComment()">Post Comment</button>
-<div id="commentList"></div>
-</div>
+<div class="lightbox" id="lightbox"><span onclick="closeLightbox()">&times;</span><img id="lightboxImg" src="" alt="Preview"></div>
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <footer>
-<p>© 2026 Travel Blog </p>
+  <h3>ArizonaTrails</h3>
+  <p>© 2026 Arizona Travel Blog | Designed for tourism inspiration and educational project use.</p>
 </footer>
 
 <script>
+function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
 function addComment(){
- let name=document.querySelector('input[type="text"]').value;
- let comment=document.querySelector('textarea').value;
- if(name && comment){
-  let div=document.createElement('div');
-  div.style.marginTop='10px';
-  div.innerHTML='<b>'+name+':</b> '+comment;
-  document.getElementById('commentList').appendChild(div);
- }
+  const name=document.getElementById('name').value.trim();
+  const comment=document.getElementById('comment').value.trim();
+  if(name && comment){
+    const div=document.createElement('div');
+    div.className='comment-item';
+    div.innerHTML='<strong>'+escapeHTML(name)+':</strong> '+escapeHTML(comment);
+    document.getElementById('commentList').appendChild(div);
+    document.getElementById('name').value='';
+    document.getElementById('email').value='';
+    document.getElementById('comment').value='';
+  }else{
+    alert('Please enter your name and comment.');
+  }
 }
+function escapeHTML(text){return text.replace(/[&<>'"]/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[ch];});}
+function openLightbox(src){
+  document.getElementById('lightboxImg').src=src;
+  document.getElementById('lightbox').style.display='flex';
+}
+function closeLightbox(){document.getElementById('lightbox').style.display='none';}
+window.addEventListener('scroll',function(){
+  document.getElementById('backTop').style.display=window.scrollY>500?'block':'none';
+});
 </script>
-
 </body>
 </html>
